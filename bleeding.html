@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bleeding - First Aid</title>
+  <title>First Aid - Bleeding</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -16,38 +16,40 @@
       padding: 1em;
       text-align: center;
     }
-    .content {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1em;
       padding: 1em;
+    }
+    .card {
       background: white;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      margin: 2em;
+      padding: 1.5em;
+      text-align: left;
       font-weight: bold;
       color: #d32f2f;
-    }
-    .content h2 {
-      margin-bottom: 1em;
-    }
-    .content ul {
-      font-weight: normal;
-      color: #444;
-      list-style-type: square;
-    }
-    .content button {
-      background: #d32f2f;
-      color: white;
-      padding: 1em 2em;
-      border-radius: 5px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
       cursor: pointer;
-      border: none;
-      font-weight: bold;
-      margin-top: 1em;
-      display: block;
     }
-    .content button:hover {
-      background: #c62828;
+    .card:hover {
+      transform: scale(1.03);
     }
-    .back-btn {
+    .card h3 {
+      margin: 0 0 0.5em 0;
+    }
+    .card p {
+      font-weight: normal;
+      font-size: 14px;
+      color: #444;
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+    }
+    .emergency-btn {
       display: inline-block;
       background: #d32f2f;
       color: white;
@@ -56,10 +58,23 @@
       text-decoration: none;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 1em;
     }
-    .back-btn:hover {
-      background: #c62828;
+    .content {
+      padding: 1em;
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+    button {
+      margin: 1em 1em 0 0;
+      padding: 0.8em 1.2em;
+      font-weight: bold;
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -69,28 +84,71 @@
     <h1>First Aid - Bleeding</h1>
   </header>
 
-  <div class="content">
+  <main id="main-view" class="grid">
+
+    <div class="card" onclick="showContent('bleeding')">
+      <h3>🩸 Bleeding</h3>
+      <p>Apply firm pressure and elevate the wound.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <span class="emergency-btn" onclick="showContent('emergency')">🚨 Emergency Numbers</span>
+  </footer>
+
+  <!-- Dynamic Content Area for Bleeding -->
+  <div id="bleeding" class="content">
     <h2>🩸 Bleeding</h2>
-    <p>Follow these steps to manage bleeding:</p>
+    <p>Instructions for treating bleeding:</p>
     <ul>
       <li>Apply firm pressure to the wound using a clean cloth or bandage.</li>
       <li>If possible, elevate the wounded area above the heart level to reduce blood flow.</li>
       <li>If bleeding does not stop, apply more pressure and call for emergency medical assistance.</li>
       <li>In case of severe bleeding, seek immediate medical attention by calling an ambulance.</li>
     </ul>
+    <button onclick="speak(bleedingText)">🔊 Play Instructions</button>
+    <button onclick="goBack()">⬅ Back</button>
+  </div>
 
-    <button onclick="speakInstructions()">🔊 Play Instructions</button>
-
-    <a href="index.html" class="back-btn">⬅ Back to Home</a>
+  <div id="emergency" class="content">
+    <h2>🚨 Emergency Numbers</h2>
+    <ul>
+      <li><strong>Ambulance:</strong> 102</li>
+      <li><strong>Fire:</strong> 101</li>
+      <li><strong>Police:</strong> 100</li>
+      <li><strong>Poison Helpline:</strong> 1066</li>
+    </ul>
+    <button onclick="goBack()">⬅ Back</button>
   </div>
 
   <script>
-    function speakInstructions() {
-      const text = "Apply firm pressure to the wound using a clean cloth or bandage. If possible, elevate the wounded area above the heart level to reduce blood flow. If bleeding does not stop, apply more pressure and call for emergency medical assistance. In case of severe bleeding, seek immediate medical attention by calling an ambulance.";
+    const bleedingText = "Apply firm pressure to the wound using a clean cloth or bandage. If possible, elevate the wounded area above the heart level to reduce blood flow. If bleeding does not stop, apply more pressure and call for emergency medical assistance. In case of severe bleeding, seek immediate medical attention by calling an ambulance.";
+
+    function showContent(id) {
+      stopSpeech();
+      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+      document.getElementById('main-view').style.display = 'none';
+      document.getElementById(id).classList.add('active');
+    }
+
+    function goBack() {
+      stopSpeech();
+      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+      document.getElementById('main-view').style.display = 'grid';
+    }
+
+    function speak(text) {
+      stopSpeech();
       const utterance = new SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(utterance);
     }
-  </script>
 
+    function stopSpeech() {
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+    }
+  </script>
 </body>
 </html>
