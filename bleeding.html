@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bleeding - First Aid</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #d32f2f;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .content {
+      padding: 2em;
+    }
+    .back-btn {
+      display: inline-block;
+      background: #d32f2f;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>First Aid - Bleeding</h1>
+  </header>
+
+  <div class="content">
+    <h2>🩸 Bleeding</h2>
+    <p>Instructions for treating bleeding:</p>
+    <ul>
+      <li>Apply firm pressure to the wound to stop bleeding.</li>
+      <li>If possible, elevate the wounded area above the heart level.</li>
+      <li>If the bleeding continues, apply more pressure or use a clean cloth to control it.</li>
+      <li>If bleeding is severe, call emergency services.</li>
+    </ul>
+    <button onclick="speak('Apply firm pressure to the wound to stop bleeding. If possible, elevate the wounded area above the heart level. Apply more pressure if needed or use a clean cloth. If severe bleeding continues, call emergency services.')">🔊 Play Instructions</button>
+    <a href="index.html" class="back-btn">⬅ Back</a>
+  </div>
+
+  <script>
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
+    }
+  </script>
+
+</body>
+</html>
