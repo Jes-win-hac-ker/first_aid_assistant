@@ -17,7 +17,35 @@
       text-align: center;
     }
     .content {
-      padding: 2em;
+      padding: 1em;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin: 2em;
+      font-weight: bold;
+      color: #d32f2f;
+    }
+    .content h2 {
+      margin-bottom: 1em;
+    }
+    .content ul {
+      font-weight: normal;
+      color: #444;
+      list-style-type: square;
+    }
+    .content button {
+      background: #d32f2f;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-weight: bold;
+      margin-top: 1em;
+      display: block;
+    }
+    .content button:hover {
+      background: #c62828;
     }
     .back-btn {
       display: inline-block;
@@ -30,16 +58,7 @@
       cursor: pointer;
       margin-top: 1em;
     }
-    button {
-      background: #d32f2f;
-      color: white;
-      padding: 1em 2em;
-      border-radius: 5px;
-      cursor: pointer;
-      border: none;
-      font-weight: bold;
-    }
-    button:hover {
+    .back-btn:hover {
       background: #c62828;
     }
   </style>
@@ -52,7 +71,7 @@
 
   <div class="content">
     <h2>🩸 Bleeding</h2>
-    <p>Follow the instructions below:</p>
+    <p>Follow these steps to manage bleeding:</p>
     <ul>
       <li>Apply firm pressure to the wound using a clean cloth or bandage.</li>
       <li>If possible, elevate the wounded area above the heart level to reduce blood flow.</li>
