@@ -30,6 +30,18 @@
       cursor: pointer;
       margin-top: 1em;
     }
+    button {
+      background: #d32f2f;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #c62828;
+    }
   </style>
 </head>
 <body>
@@ -40,19 +52,22 @@
 
   <div class="content">
     <h2>🩸 Bleeding</h2>
-    <p>Instructions for treating bleeding:</p>
+    <p>Follow the instructions below:</p>
     <ul>
-      <li>Apply firm pressure to the wound to stop bleeding.</li>
-      <li>If possible, elevate the wounded area above the heart level.</li>
-      <li>If the bleeding continues, apply more pressure or use a clean cloth to control it.</li>
-      <li>If bleeding is severe, call emergency services.</li>
+      <li>Apply firm pressure to the wound using a clean cloth or bandage.</li>
+      <li>If possible, elevate the wounded area above the heart level to reduce blood flow.</li>
+      <li>If bleeding does not stop, apply more pressure and call for emergency medical assistance.</li>
+      <li>In case of severe bleeding, seek immediate medical attention by calling an ambulance.</li>
     </ul>
-    <button onclick="speak('Apply firm pressure to the wound to stop bleeding. If possible, elevate the wounded area above the heart level. Apply more pressure if needed or use a clean cloth. If severe bleeding continues, call emergency services.')">🔊 Play Instructions</button>
-    <a href="index.html" class="back-btn">⬅ Back</a>
+
+    <button onclick="speakInstructions()">🔊 Play Instructions</button>
+
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
   </div>
 
   <script>
-    function speak(text) {
+    function speakInstructions() {
+      const text = "Apply firm pressure to the wound using a clean cloth or bandage. If possible, elevate the wounded area above the heart level to reduce blood flow. If bleeding does not stop, apply more pressure and call for emergency medical assistance. In case of severe bleeding, seek immediate medical attention by calling an ambulance.";
       const utterance = new SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(utterance);
     }
