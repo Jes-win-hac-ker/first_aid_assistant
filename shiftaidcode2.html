@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Aid Assistant</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #d32f2f;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1em;
+      padding: 1em;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 1.5em;
+      text-align: left;
+      font-weight: bold;
+      color: #d32f2f;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card h3 {
+      margin: 0 0 0.5em 0;
+    }
+    .card p {
+      font-weight: normal;
+      font-size: 14px;
+      color: #444;
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+    }
+    .emergency-btn {
+      display: inline-block;
+      background: #d32f2f;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>First Aid Assistant</h1>
+  </header>
+
+  <main id="main-view" class="grid">
+
+    <!-- Urgent Cases -->
+    <div class="card" onclick="showContent('bleeding')">
+      <h3>🩸 Bleeding</h3>
+      <p>Apply firm pressure and elevate the wound.</p>
+    </div>
+
+    <div class="card" onclick="showContent('choking')">
+      <h3>🤐 Choking</h3>
+      <p>Back blows and abdominal thrusts may be needed immediately.</p>
+    </div>
+
+    <div class="card" onclick="showContent('fainting')">
+      <h3>😵 Fainting</h3>
+      <p>Lay the person down and elevate legs. Ensure they're breathing.</p>
+    </div>
+
+    <div class="card" onclick="showContent('heatstroke')">
+      <h3>🌡️ Heatstroke</h3>
+      <p>Move to cool place, hydrate, and reduce body temperature quickly.</p>
+    </div>
+
+    <!-- Less Urgent Cases -->
+    <a class="card" href="cuts.html">
+      <h3>✂️ Cuts</h3>
+      <p>Clean wound, apply ointment, and bandage.</p>
+    </a>
+
+    <a class="card" href="sprains.html">
+      <h3>🦶 Sprains & Strains</h3>
+      <p>Use rest, ice, compression, elevation (R.I.C.E).</p>
+    </a>
+
+    <a class="card" href="nosebleed.html">
+      <h3>👃 Nosebleed</h3>
+      <p>Pinch nose and lean forward to prevent swallowing blood.</p>
+    </a>
+
+    <a class="card" href="headinjury.html">
+      <h3>🧠 Minor Head Injury</h3>
+      <p>Apply cold pack, observe for dizziness, monitor symptoms.</p>
+    </a>
+  </main>
+
+  <footer>
+    <a href="emergency.html" class="emergency-btn">🚨 Emergency Numbers</a>
+  </footer>
+
+  <script>
+    // Your script for dynamic content and speech synthesis here
+  </script>
+
+</body>
+</html>
+
