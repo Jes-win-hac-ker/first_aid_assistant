@@ -45,12 +45,9 @@
       font-size: 14px;
       color: #444;
     }
-    .content {
+    footer {
+      text-align: center;
       padding: 1em;
-      display: none;
-    }
-    .content.active {
-      display: block;
     }
     .emergency-btn {
       display: inline-block;
@@ -62,16 +59,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-    button {
-      margin: 1em 1em 0 0;
-      padding: 0.8em 1.2em;
-      font-weight: bold;
-      background-color: #d32f2f;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
@@ -81,55 +68,57 @@
   </header>
 
   <main id="main-view" class="grid">
+
+    <!-- Urgent Cases -->
     <div class="card" onclick="showContent('bleeding')">
       <h3>🩸 Bleeding</h3>
       <p>Apply firm pressure and elevate the wound.</p>
     </div>
+
     <div class="card" onclick="showContent('choking')">
       <h3>🤐 Choking</h3>
       <p>Back blows and abdominal thrusts may be needed immediately.</p>
     </div>
+
     <div class="card" onclick="showContent('fainting')">
       <h3>😵 Fainting</h3>
       <p>Lay the person down and elevate legs. Ensure they're breathing.</p>
     </div>
+
     <div class="card" onclick="showContent('heatstroke')">
       <h3>🌡️ Heatstroke</h3>
       <p>Move to cool place, hydrate, and reduce body temperature quickly.</p>
     </div>
+
+    <!-- Less Urgent Cases -->
     <a class="card" href="cuts.html">
       <h3>✂️ Cuts</h3>
       <p>Clean wound, apply ointment, and bandage.</p>
     </a>
+
     <a class="card" href="sprains.html">
       <h3>🦶 Sprains & Strains</h3>
       <p>Use rest, ice, compression, elevation (R.I.C.E).</p>
     </a>
+
     <a class="card" href="nosebleed.html">
       <h3>👃 Nosebleed</h3>
       <p>Pinch nose and lean forward to prevent swallowing blood.</p>
     </a>
+
     <a class="card" href="headinjury.html">
       <h3>🧠 Minor Head Injury</h3>
       <p>Apply cold pack, observe for dizziness, monitor symptoms.</p>
     </a>
-    <a class="card" href="emergency.html">
-      <h3>🚨 Emergency</h3>
-      <p>Emergency numbers with call functionality.</p>
-    </a>
   </main>
 
-  <script>
-    function showContent(id) {
-      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
-      document.getElementById('main-view').style.display = 'none';
-      document.getElementById(id).classList.add('active');
-    }
+  <footer>
+    <a href="emergency.html" class="emergency-btn">🚨 Emergency Numbers</a>
+  </footer>
 
-    function goBack() {
-      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
-      document.getElementById('main-view').style.display = 'grid';
-    }
+  <script>
+    // Your script for dynamic content and speech synthesis here
   </script>
+
 </body>
 </html>
