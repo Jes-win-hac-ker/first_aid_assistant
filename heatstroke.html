@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Aid - Heatstroke</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #d32f2f;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1em;
+      padding: 1em;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 1.5em;
+      text-align: left;
+      font-weight: bold;
+      color: #d32f2f;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card h3 {
+      margin: 0 0 0.5em 0;
+    }
+    .card p {
+      font-weight: normal;
+      font-size: 14px;
+      color: #444;
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+    }
+    .emergency-btn {
+      display: inline-block;
+      background: #d32f2f;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .content {
+      padding: 1em;
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+    button {
+      margin: 1em 1em 0 0;
+      padding: 0.8em 1.2em;
+      font-weight: bold;
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>First Aid - Heatstroke</h1>
+  </header>
+
+  <main id="main-view" class="grid">
+
+    <div class="card" onclick="showContent('heatstroke')">
+      <h3>🌡️ Heatstroke</h3>
+      <p>Move to cool place, hydrate, and reduce body temperature quickly.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <span class="emergency-btn" onclick="showContent('emergency')">🚨 Emergency Numbers</span>
+  </footer>
+
+  <!-- Dynamic Content Area for Heatstroke -->
+  <div id="heatstroke" class="content">
+    <h2>🌡️ Heatstroke</h2>
+    <p>Instructions for treating heatstroke.</p>
+    <button onclick="speak(heatstrokeText)">🔊 Play Instructions</button>
+    <button onclick="goBack()">⬅ Back</button>
+  </div>
+
+  <div id="emergency" class="content">
+    <h2>🚨 Emergency Numbers</h2>
+    <ul>
+      <li><strong>Ambulance:</strong> 102</li>
+      <li><strong>Fire:</strong> 101</li>
+      <li><strong>Police:</strong> 100</li>
+      <li><strong>Poison Helpline:</strong> 1066</li>
+    </ul>
+    <button onclick="goBack()">⬅ Back</button>
+  </div>
+
+  <script>
+    const heatstrokeText = "Move the person to a cool place. Remove excess clothing. Use cool cloths or a fan. Give water if conscious. Call emergency services.";
+
+    function showContent(id) {
+      stopSpeech();
+      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+      document.getElementById('main-view').style.display = 'none';
+      document.getElementById(id).classList.add('active');
+    }
+
+    function goBack() {
+      stopSpeech();
+      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+      document.getElementById('main-view').style.display = 'grid';
+    }
+
+    function speak(text) {
+      stopSpeech();
+      const utterance = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopSpeech() {
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+    }
+  </script>
+</body>
+</html>
