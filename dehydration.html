@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Self-Care - Dehydration</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #388e3c;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .content {
+      padding: 1.5em;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+    button {
+      margin: 1em 1em 0 0;
+      padding: 0.8em 1.2em;
+      font-weight: bold;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>💧 Dehydration</h1>
+  </header>
+
+  <main class="content">
+    <p>Steps to handle dehydration:</p>
+    <ul>
+      <li>Drink small sips of water frequently.</li>
+      <li>Use oral rehydration solutions (ORS) if available.</li>
+      <li>Avoid alcohol, caffeine, and sugary drinks.</li>
+      <li>Rest in a cool, shaded area.</li>
+    </ul>
+    <button onclick="speak(text)">🔊 Play Instructions</button>
+    <button onclick="goBack()">⬅ Back to Self-Care</button>
+  </main>
+
+  <script>
+    const text = "Drink small sips of water frequently. Use oral rehydration solutions if available. Avoid alcohol, caffeine, and sugary drinks. Rest in a cool, shaded area.";
+    
+    function speak(msg) {
+      const utterance = new SpeechSynthesisUtterance(msg);
+      window.speechSynthesis.cancel(); 
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function goBack() {
+      window.location.href = 'selfcare.html';
+    }
+  </script>
+
+</body>
+</html>
