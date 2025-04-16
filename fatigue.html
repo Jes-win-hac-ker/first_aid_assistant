@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Self-Care - Fatigue</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #388e3c;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .content {
+      padding: 1.5em;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+    button {
+      margin: 1em 1em 0 0;
+      padding: 0.8em 1.2em;
+      font-weight: bold;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>😴 Fatigue</h1>
+  </header>
+
+  <main class="content">
+    <p>Steps to reduce fatigue:</p>
+    <ul>
+      <li>Ensure adequate sleep each night (7-9 hours for adults).</li>
+      <li>Take short breaks during prolonged activities.</li>
+      <li>Eat well-balanced meals and stay hydrated.</li>
+      <li>Exercise regularly to boost energy levels.</li>
+    </ul>
+    <button onclick="speak(text)">🔊 Play Instructions</button>
+    <button onclick="goBack()">⬅ Back to Self-Care</button>
+  </main>
+
+  <script>
+    const text = "Ensure adequate sleep each night. Take short breaks during prolonged activities. Eat well-balanced meals and stay hydrated. Exercise regularly to boost energy levels.";
+    
+    function speak(msg) {
+      const utterance = new SpeechSynthesisUtterance(msg);
+      window.speechSynthesis.cancel(); 
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function goBack() {
+      window.location.href = 'selfcare.html';
+    }
+  </script>
+
+</body>
+</html>
