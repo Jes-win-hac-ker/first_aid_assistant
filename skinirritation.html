@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Self-Care - Skin Irritation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #388e3c;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .content {
+      padding: 1.5em;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+    button {
+      margin: 1em 1em 0 0;
+      padding: 0.8em 1.2em;
+      font-weight: bold;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🧼 Skin Irritation</h1>
+  </header>
+
+  <main class="content">
+    <p>Steps to handle skin irritation:</p>
+    <ul>
+      <li>Clean the area gently with lukewarm water.</li>
+      <li>Avoid scratching or rubbing the irritated area.</li>
+      <li>Apply soothing lotions or aloe vera gel.</li>
+      <li>Wear loose, comfortable clothing to prevent further irritation.</li>
+    </ul>
+    <button onclick="speak(text)">🔊 Play Instructions</button>
+    <button onclick="goBack()">⬅ Back to Self-Care</button>
+  </main>
+
+  <script>
+    const text = "Clean the area gently with lukewarm water. Avoid scratching or rubbing the irritated area. Apply soothing lotions or aloe vera gel. Wear loose, comfortable clothing to prevent further irritation.";
+    
+    function speak(msg) {
+      const utterance = new SpeechSynthesisUtterance(msg);
+      window.speechSynthesis.cancel(); 
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function goBack() {
+      window.location.href = 'selfcare.html';
+    }
+  </script>
+
+</body>
+</html>
