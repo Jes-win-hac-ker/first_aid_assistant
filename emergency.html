@@ -2,97 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Emergency Numbers - First Aid Assistant</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
     }
+
     header {
-      background: #d32f2f;
+      background-color: #d32f2f;
       color: white;
       padding: 1em;
       text-align: center;
+      font-size: 1.5em;
     }
+
     .container {
-      padding: 2em;
-      background: white;
+      max-width: 700px;
       margin: 2em auto;
-      border-radius: 10px;
-      max-width: 800px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      border-radius: 15px;
+      padding: 2em;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
+
     h2 {
-      text-align: center;
       color: #d32f2f;
+      margin-bottom: 1.5em;
+      font-size: 1.4em;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
-      font-size: 18px;
+
+    .emergency-item {
+      margin-bottom: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8em 1.2em;
+      background-color: #fff0f0;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
     }
-    li {
-      margin: 10px 0;
-      color: #444;
+
+    .emergency-item span {
+      font-weight: bold;
+      font-size: 1.1em;
     }
+
     .call-btn {
-      display: inline-block;
-      background: #d32f2f;
+      background-color: #d32f2f;
       color: white;
-      padding: 1em 2em;
-      border-radius: 50px;
-      text-decoration: none;
+      border: none;
+      padding: 0.6em 1.5em;
+      border-radius: 30px;
+      font-size: 1em;
       font-weight: bold;
-      margin-top: 10px;
-      text-align: center;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
-    .go-back-btn {
-      display: inline-block;
-      background: #d32f2f;
+
+    .call-btn:hover {
+      background-color: #b71c1c;
+    }
+
+    .back-btn {
+      margin-top: 2em;
+      background-color: #d32f2f;
       color: white;
-      padding: 1em 2em;
-      border-radius: 50px;
-      text-decoration: none;
+      padding: 0.8em 2em;
+      border-radius: 30px;
       font-weight: bold;
-      margin-top: 20px;
-      text-align: center;
-      width: 100%;
-      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    @media (max-width: 600px) {
+      .emergency-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .call-btn {
+        margin-top: 0.8em;
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>First Aid Assistant</h1>
+    🚑 First Aid Assistant
   </header>
 
   <div class="container">
     <h2>🚨 Emergency Numbers</h2>
-    <ul>
-      <li>
-        <strong>Ambulance:</strong> 102
-        <a href="tel:+102" class="call-btn">Call Ambulance</a>
-      </li>
-      <li>
-        <strong>Fire:</strong> 101
-        <a href="tel:+101" class="call-btn">Call Fire</a>
-      </li>
-      <li>
-        <strong>Police:</strong> 100
-        <a href="tel:+100" class="call-btn">Call Police</a>
-      </li>
-      <li>
-        <strong>Poison Helpline:</strong> 1066
-        <a href="tel:+1066" class="call-btn">Call Poison Helpline</a>
-      </li>
-    </ul>
-    <a href="index.html" class="go-back-btn">⬅ Go Back</a>
+
+    <div class="emergency-item">
+      <span>🚑 Ambulance: 102</span>
+      <a href="tel:102"><button class="call-btn">Call Ambulance</button></a>
+    </div>
+
+    <div class="emergency-item">
+      <span>🔥 Fire: 101</span>
+      <a href="tel:101"><button class="call-btn">Call Fire</button></a>
+    </div>
+
+    <div class="emergency-item">
+      <span>👮 Police: 100</span>
+      <a href="tel:100"><button class="call-btn">Call Police</button></a>
+    </div>
+
+    <div class="emergency-item">
+      <span>☠️ Poison Helpline: 1066</span>
+      <a href="tel:1066"><button class="call-btn">Call Poison Helpline</button></a>
+    </div>
+
+    <a class="back-btn" href="index.html">⬅ Go Back</a>
   </div>
 
 </body>
 </html>
-
